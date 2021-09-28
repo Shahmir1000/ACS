@@ -1,0 +1,22 @@
+SELECT s.`Customer_ID#`, `FName`, `LName`, `Email`, `Phone#` , s.`Service_ID#` FROM customer c JOIN service s ON s.`Customer_ID#`= c.`Customer_ID#` ORDER BY s.`Service_Date` 
+
+SELECT s.`Customer_ID#`, `FName`, `LName`, `Email`, `Phone#` , s.`Service_ID#` FROM customer c JOIN service s ON s.`Customer_ID#`= c.`Customer_ID#` WHERE c.`Customer_ID#` = 1 
+
+
+SELECT s.`Service_ID#`, s.`Service_Date` FROM customer c JOIN service s ON s.`Customer_ID#`= c.`Customer_ID#` ORDER BY s.`Service_Date` 
+
+SELECT s.`Service_ID#`, s.`Service_Date` FROM service s WHERE s.`Customer_ID#` = 1 ORDER BY s.Service_Date 
+
+SELECT s.`Service_Date` ,s.`Service_ID#`, s.`Customer_ID#`, s.`Service_Type`, s.`Address`, s.`Cost`, c.`FName`, c.`LName`, c.`Phone#`, c.`Email` FROM service s JOIN customer c ON s.`Customer_ID#`= c.`Customer_ID#` ORDER BY s.`Service_Date` 
+
+SELECT s.`Service_Date` ,s.`Service_ID#`, s.`Customer_ID#`, s.`Service_Type`, s.`Address`, s.`Cost`, CONCAT(c.`FName`, ' ', c.`LName`) AS `Name` , c.`Phone#`, c.`Email` FROM service s JOIN customer c ON s.`Customer_ID#`= c.`Customer_ID#` ORDER BY s.`Service_Date` 
+
+SELECT c.`FName`, c.`LName`, c.`Email`, c.`Phone#` FROM customer c WHERE c.`Customer_ID#` = 1 
+
+INSERT INTO `service` (`Service_ID#`, `Customer_ID#`, `Service_Date`, `Service_Type`, `Address`, `Em_ID#`, `Cost`, `Notes`, `Images`) VALUES (NULL, '1', '2020-07-25', 'ac_install', '1332 Mowat Lane Milton ON L9T6C2', '1', '300', 'example 3', NULL), (NULL, '2', '2020-07-25', 'furnace_install', '1383 Hill St', '1', '500', 'example 4', NULL); 
+
+INSERT INTO `customer` (`Customer_ID#`, `FName`, `LName`, `Email`, `Phone#`) VALUES (NULL, 'Shahzaib', 'Masood', 'Shahzaib@gmail.com', '6477006099');
+
+INSERT INTO `ac_instalation` (`AC_ID#`, `Service_ID#`, `ac_model#`, `ac_serial#`, `coil_model#`, `coil_serial#`) VALUES (NULL, '5', '1234123', 'qwerqwe234', '1234qwert', '12345qwert'); 
+
+INSERT INTO `furnace_installation` (`Furnace_ID#`, `Service_ID#`, `furnace_model#`, `furnace_serial#`, `GoodCare`) VALUES (NULL, '8', '1234qwer', '1234qwer', 'NO');
